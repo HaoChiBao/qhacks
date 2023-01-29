@@ -31,7 +31,7 @@ function Register(){
                         console.log(uid)
                         setDoc(doc(system.db, 'users', uid), {username: username}).then(()=>{
                             console.log('user instantiated')
-                            window.location.assign('/main')
+                            window.location.assign('/lobby')
                             
                         }).catch((error)=>{
                             console.log('register error')

@@ -29,7 +29,7 @@ function Login(){
                         
                         localStorage.setItem('uid:', uid)
                         
-                        window.location.assign('/main')
+                        window.location.assign('/lobby')
                       }).catch((error)=>{
                         console.log('signin error')
                         console.log(error)
