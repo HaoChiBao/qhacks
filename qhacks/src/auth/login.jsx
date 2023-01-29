@@ -29,7 +29,7 @@ function Login(){
                         
                         localStorage.setItem('uid:', uid)
                         
-                        window.location.assign('/')
+                        window.location.assign('/main')
                       }).catch((error)=>{
                         console.log('signin error')
                         console.log(error)
@@ -64,6 +64,7 @@ function Login(){
                     <div className="part">
                         <button id = 'submit'>submit</button>
                         <div className = 'error' id = 'error'></div>
+                        <a href='/register'>don't have an account? sign up</a>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import { System } from '../js/firebase/system';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
+import { setDoc, doc } from 'firebase/firestore/lite';
 import '../css/index.css'
 import '../css/all.css'
 
@@ -15,7 +16,7 @@ function Register(){
             
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            
+            const username = document.getElementById('username').value;
             
             console.log(email, password)
             if (email != '' && password != '' && password.length >= 6){
@@ -27,16 +28,18 @@ function Register(){
                         
                         localStorage.setItem('uid:', uid)
                         
-                        window.location.assign('/')
-                      }).catch((error)=>{
-                        console.log('register error')
-                        console.log(error)
-                        document.getElementById('error').innerHTML = '*incorrect: email or password'
-                        return false
-                      })
-                    // console.log(1)
-                    // if (redirect != false) {console.log('success'); window.location.assign('/')} 
-                    // else {console.log('error'); setError('incorrect: email or password')}
+                        console.log(uid)
+                        setDoc(doc(system.db, 'users', uid), {username: username}).then(()=>{
+                            console.log('user instantiated')
+                            window.location.assign('/main')
+                            
+                        }).catch((error)=>{
+                            console.log('register error')
+                            console.log(error)
+                            document.getElementById('error').innerHTML = '*incorrect: email or password'
+                            return false
+                        })
+                    })
                 }
                 
             } else {console.log('error'); document.getElementById('error').innerHTML = '*please fill in all fields'}
@@ -65,6 +68,7 @@ function Register(){
                     <div className="part">
                         <button id = 'submit'>submit</button>
                         <div className = 'error' id ='error'></div>
+                        <a href='/login'>have an account? login</a>
                     </div>
                 </div>
 

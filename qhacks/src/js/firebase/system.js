@@ -1,7 +1,7 @@
 // firebase imports
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { setDoc, doc } from 'firebase/firestore/lite';
+import { setDoc, doc , getFirestore} from 'firebase/firestore/lite';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
 
 // import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js';
@@ -26,6 +26,7 @@ class System {
   constructor() {
       this.app = initializeApp(firebaseConfig);
       this.dc = getAnalytics(this.app);
+      this.db = getFirestore(this.app);
       this.getAuth = new Auth();
     }
     async createUser(email, password, username){
