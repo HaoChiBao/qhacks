@@ -1,0 +1,35 @@
+.landing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing .side {
+    width: 50vw;
+    height: 100vh;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 2rem; */
+}
+.landing .side button{
+    width: 70%;
+    height: 80%;
+    border-radius: 3rem;
+    border: 1px solid #000;
+    background-color: white;
+    font-size: 3rem;
+    transition: 0.4s;
+}
+
+.landing .side button:hover{
+    background-color: #000;
+    color: #fff;
+    transition: 0.4s;
+    transform: scale(1.1);
+}
+.landing .side button:active{
+    transform: scale(0.9);
+    transition: 0.4s;
+}
