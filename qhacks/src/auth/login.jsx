@@ -1,5 +1,6 @@
 import { System } from '../js/firebase/system';
 import React, { useState } from 'react';
+import { doc, getDoc, updateDoc } from 'firebase/firestore/lite';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import '../css/index.css'
 import '../css/all.css'
@@ -29,7 +30,18 @@ function Login(){
                         
                         localStorage.setItem('uid:', uid)
                         
-                        window.location.assign('/lobby')
+                        const ref = doc(system.db, 'users', uid);
+                        const field = getDoc(ref).then((doc) => {
+                            const data = doc.data();
+                            const username = data.username;
+                            localStorage.setItem('username:', username)
+                            console.log(username)
+                            window.location.assign('/lobby')
+
+                        }).catch((error) => {
+                            console.log('error with getting username')
+                        })
+
                       }).catch((error)=>{
                         console.log('signin error')
                         console.log(error)

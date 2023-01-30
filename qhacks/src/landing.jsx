@@ -14,11 +14,16 @@ function Landing() {
     }
     return (
         <section className = 'landing'>
-            <div className="side">
-                <button  id = 'login'>LOGIN</button>
+            <div className="title">
+                <h1>TelePresence</h1>
             </div>
-            <div className="side">
-                <button id = 'register'>REGISTER</button>
+            <div className="bottom">
+                <div className="side">
+                    <button  id = 'login'>LOGIN</button>
+                </div>
+                <div className="side">
+                    <button id = 'register'>REGISTER</button>
+                </div>
             </div>
         </section>
     )

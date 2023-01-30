@@ -2,11 +2,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.landing .title {
+    background-color: #f8f8f8;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 20vh;
+}
+.landing .bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .landing .side {
     width: 50vw;
-    height: 100vh;
+    /* height: 100vh; */
+    height: 80vh;
     background-color: #f8f8f8;
     display: flex;
     justify-content: center;

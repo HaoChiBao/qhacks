@@ -27,6 +27,7 @@ function Register(){
                         const uid = promise.user.uid;
                         
                         localStorage.setItem('uid:', uid)
+                        localStorage.setItem('username:', username)
                         
                         console.log(uid)
                         setDoc(doc(system.db, 'users', uid), {username: username}).then(()=>{
